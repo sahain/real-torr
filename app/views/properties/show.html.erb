@@ -6,7 +6,7 @@
 		</header>
 				<h4>Asking Price <strong><%= number_to_currency(@property.price) %></strong></h4>
 
-		<p><%= @property.description %></p>
+		<%= description_for(@property) %>
 		<div class="row">
 			<h4>Map</h4>
 			<iframe
@@ -19,6 +19,7 @@
 		<% if @property.open_houses.present? %>
 			<article><%= render @property.open_houses %></article>
 		<% end %>
+		<hr />
 		<nav>
 			<%= link_to 'All Properties', properties_path %>
 			<%= link_to 'Edit', edit_property_path(@property), class: 'button' %>

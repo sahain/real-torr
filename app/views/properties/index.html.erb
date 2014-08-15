@@ -1,0 +1,29 @@
+<div class="row">
+	<h1>All Properties</h1>
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>Address</th>
+				<th>City</th>
+				<th>Zip</th>
+				<th>Price</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @properties.each do |p| %>
+			<tr>
+				<td><%= link_to p.address1, p %></td>
+				<td><%= p.city %></td>
+				<td><%= p.zip %></td>
+				<td><%= number_to_currency(p.price) %></td>
+				<td><%= truncate(p.description, length: 75, separator: ' ') %></td>
+			</td>	
+			<% end %>
+		</tbody>
+	</table>
+	<nav>
+		<%= link_to "Add New Property", new_property_path, class: 'button' %>
+	</nav>
+</div>

@@ -1,0 +1,31 @@
+<article id="property">
+	<div class="row">
+		<header>
+			<img src="http://lorempixel.com/g/400/200/cats" />
+			<h2><%= @property.address1 %>, <% if @property.address2.present? %> <%= @property.address2 %>, <% end %><%= @property.city %>, <%= @property.state %>, <%= @property.zip %></h2>
+		</header>
+				<h4>Asking Price <strong><%= number_to_currency(@property.price) %></strong></h4>
+
+		<p><%= @property.description %></p>
+		<div class="row">
+			<h4>Map</h4>
+			<iframe
+			  width="600"
+			  height="450"
+			  frameborder="0" style="border:0"
+			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDbp4lU9Rxn8iPGBO7dLXPQZqAas9dFuwE&q=<%= @property.address1 %>,<%= @property.city %>+<%= @property.state %>">
+			</iframe>
+		</div>
+		<% if @property.open_houses.present? %>
+			<article><%= render @property.open_houses %></article>
+		<% end %>
+		<nav>
+			<%= link_to 'All Properties', properties_path %>
+			<%= link_to 'Edit', edit_property_path(@property), class: 'button' %>
+			<%= link_to 'Delete', @property,
+			            class: 'button',
+			            method: :delete, data: { confirm: 'Are you sure?'} %>
+		</nav>
+
+	</div>
+</article>

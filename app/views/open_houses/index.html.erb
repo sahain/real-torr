@@ -1,0 +1,12 @@
+<div class="row">
+	<h1>All Open Houses</h1>
+	<hr>
+	<section>
+		<% @open_houses.each do |o| %>
+			<article>
+			  <h2>Open House on: <%= o.starts_at.to_s(:long) %> - <%= o.ends_at.to_s(:long) %></h2>
+			  <h3><%= o.property.address1 %>
+			  <p><%= o.property.description %></p>
+			</article>
+		<% end %>
+	</section>

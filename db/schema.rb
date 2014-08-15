@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627020815) do
+ActiveRecord::Schema.define(version: 20140815214941) do
 
   create_table "open_houses", force: true do |t|
     t.datetime "starts_at"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20140627020815) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
+    t.boolean  "active"
+    t.boolean  "featured"
+    t.string   "image_file_name"
   end
 
 end

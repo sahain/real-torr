@@ -7,18 +7,19 @@
 				<h4>Asking Price <strong><%= number_to_currency(@property.price) %></strong></h4>
 
 		<%= description_for(@property) %>
-		<div class="row">
-			<h4>Map</h4>
-			<iframe
+		<h4>Map</h4>
+		<iframe
 			  width="600"
 			  height="450"
 			  frameborder="0" style="border:0"
 			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDbp4lU9Rxn8iPGBO7dLXPQZqAas9dFuwE&q=<%= @property.address1 %>,<%= @property.city %>+<%= @property.state %>">
-			</iframe>
-		</div>
+		</iframe>
+		<hr />
+
 		<% if @property.open_houses.present? %>
 			<article><%= render @property.open_houses %></article>
 		<% end %>
+		<p><%= link_to "Add an open house", new_property_open_house_path(@property) %></p>
 		<hr />
 		<nav>
 			<%= link_to 'All Properties', properties_path %>

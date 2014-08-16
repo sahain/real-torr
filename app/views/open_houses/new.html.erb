@@ -1,0 +1,24 @@
+<div class="row>"
+  <header id="content-header">
+    <h2>New Open House for <%= link_to @property.address1, @property %></h2>
+
+  <%= form_for [@property, @open_house] do |f| %>
+    <%= render "shared/errors", object: @open_house %>
+    <fieldset>
+      <ul>
+        <li class="required">
+          <%= f.label :starts_at %>
+          <%= f.datetime_select :ends_at, autofocus: true %>
+        </li>
+        <li>
+          <%= f.label :ends_at %>
+          <%= f.datetime_select :ends_at%>
+        </li>
+        </ul>
+      <p>
+        <%= f.submit %>
+        <%= link_to "Cancel", properties_path, class: 'button' %>
+      </p>
+    </fieldset>
+</div>
+<% end %>

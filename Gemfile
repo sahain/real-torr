@@ -47,3 +47,6 @@ gem 'foundation-rails'
 group :development do
   gem 'rails_layout'
 end
+
+gem 'paperclip'
+gem 'aws-sdk'

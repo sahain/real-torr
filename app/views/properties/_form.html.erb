@@ -31,9 +31,13 @@
         <%= f.text_field :price %>
       </li>
       <li>
-        <%= f.label :image_file_name %>
-        <%= f.text_field :image_file_name %>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
       </li>
+      <li>
+        <%= image_for(@property) %>
+      </li>
+
     </ul>
     <p>
       <%= f.submit %>

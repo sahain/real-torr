@@ -4,11 +4,11 @@ module PropertiesHelper
   end
 
   def image_for(property)
-  	if property.image_file_name.blank?
-  	  image_tag('placeholder.png')
-  	else
-  	  image_tag(property.image_file_name)
-  	end
+  	if property.image.exists?
+      image_tag(property.image.url)
+    else
+      image_tag('placeholder.png')
+    end
   end
 
   def description_for(property) # change text later to better suit app

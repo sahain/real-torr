@@ -41,6 +41,6 @@ end
 
 private
   def property_params
-  	params.require(:property).permit(:address1, :address2, :city, :state, :zip, :price, :image_file_name)
+  	params.require(:property).permit(:address1, :address2, :city, :state, :zip, :price, :image)
   end
 end

@@ -1,12 +1,15 @@
 <div class="row">
 	<h1>All Open Houses</h1>
 	<hr>
-	<section>
+	<table>
+		<tbody>
 		<% @open_houses.each do |o| %>
-			<article>
-			  <h2>Open House on: <%= o.starts_at.to_s(:long) %> - <%= o.ends_at.to_s(:long) %></h2>
-			  <h3><%= o.property.address1 %>
-			  <p><%= o.property.description %></p>
-			</article>
+			<tr>
+			  <td><%= o.starts_at.strftime("%A, %b %d %Y, %I:%M%p") %> - <%= o.ends_at.strftime("%I:%M%p") %></td>
+			  <td><%= link_to o.property.address1, o.property %></td>
+			  <td><%= o.property.city %></td>
+			  <td><%= o.property.description %></td>
+			</tr>
 		<% end %>
-	</section>
+		</tbody>
+	</table>

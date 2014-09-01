@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :open_houses
   resources :properties do
     resources :open_houses
   end

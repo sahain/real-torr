@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815214941) do
+ActiveRecord::Schema.define(version: 20140901210113) do
 
   create_table "open_houses", force: true do |t|
     t.datetime "starts_at"
@@ -37,5 +37,15 @@ ActiveRecord::Schema.define(version: 20140815214941) do
     t.boolean  "featured"
     t.string   "image_file_name"
   end
+
+  create_table "properties_open_houses", force: true do |t|
+    t.integer  "properties_id"
+    t.integer  "open_houses_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "properties_open_houses", ["open_houses_id"], name: "index_properties_open_houses_on_open_houses_id"
+  add_index "properties_open_houses", ["properties_id"], name: "index_properties_open_houses_on_properties_id"
 
 end

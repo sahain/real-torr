@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+ resource :session
+  get "signin" => "sessions#new"
+  get 'signup' => 'users#new'
+  resources :users
+
   resources :open_houses
   resources :properties do
     resources :open_houses

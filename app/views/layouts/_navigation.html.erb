@@ -5,8 +5,19 @@
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
   <div class="top-bar-section">
-    <ul>
+    <ul class="left">
       <%= render 'layouts/navigation_links' %>
+    </ul>
+    <ul class="right">
+    	<% if current_user %>
+  			<li><%= link_to current_user.name, current_user %></li> | 
+  			<li><%= link_to "Account Settings", edit_user_path(current_user) %></li>
+  			<li><%= link_to "Sign Out", session_path, method: :delete, class: 'button' %></li>
+
+			<% else %>
+  			<li><%= link_to 'Sign Up', signup_path, class: 'button' %></li>
+  			<li><%= link_to 'Sign In', new_session_path, class: 'button' %></li>
+			<% end %>
     </ul>
   </div>
 </nav>

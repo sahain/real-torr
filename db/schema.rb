@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901210113) do
+ActiveRecord::Schema.define(version: 20140901222011) do
 
   create_table "open_houses", force: true do |t|
     t.datetime "starts_at"
@@ -47,5 +47,14 @@ ActiveRecord::Schema.define(version: 20140901210113) do
 
   add_index "properties_open_houses", ["open_houses_id"], name: "index_properties_open_houses_on_open_houses_id"
   add_index "properties_open_houses", ["properties_id"], name: "index_properties_open_houses_on_properties_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",           default: false
+  end
 
 end

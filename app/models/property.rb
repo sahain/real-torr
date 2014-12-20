@@ -1,5 +1,7 @@
 class Property < ActiveRecord::Base
   has_many :open_houses, dependent: :destroy
+  has_one :gallery, dependent: :destroy
+  has_many :pictures, through: :gallery
   has_attached_file :image, styles: {
   small: "90x133>",
   profile: "500x1400>",

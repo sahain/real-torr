@@ -5,6 +5,9 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+    @gallery = @property.gallery
+    @picture = @property.pictures
+    @open_houses = @property.open_houses.upcoming
   end
 
   def edit

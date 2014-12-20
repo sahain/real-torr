@@ -1,7 +1,9 @@
 <article id="property">
 	<div class="row">
 		<header>
-			<%= image_for(@property) %>
+			<% if @property.pictures.exists? %>
+				<%= link_to image_for(@property), gallery_path(@gallery), :class => "th" %>
+			<% end %>
 			<h2><%= @property.address1 %>, <% if @property.address2.present? %> <%= @property.address2 %>, <% end %><%= @property.city %>, <%= @property.state %>, <%= @property.zip %></h2>
 		</header>
 				<h4>Asking Price <strong><%= number_to_currency(@property.price) %></strong></h4>
@@ -17,9 +19,9 @@
 		<hr />
 
 		<% if @property.open_houses.present? %>
-			<article><%= render @property.open_houses %></article>
+			<article><%= render @property.open_houses.upcoming %></article>
 		<% end %>
-		<p class="hide"> add in: link_to "Add an open house", new_property_open_house_path(@property)</p>
+		<%= link_to "Add an open house", new_property_open_house_path(@property) %>
 		<hr />
 		<nav>
 			<%= link_to 'All Properties', properties_path %>

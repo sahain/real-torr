@@ -4,8 +4,8 @@ module PropertiesHelper
   end
 
   def image_for(property)
-  	if property.image.exists?
-      image_tag(property.image.url(:profile))
+  	if property.pictures.exists?
+      image_tag(property.pictures.first.image.url(:profile))
     else
       image_tag('placeholder.png')
     end

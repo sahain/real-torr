@@ -1,7 +1,7 @@
 <article id="property">
 	<div class="row">
 		<header>
-			<%= image_for(@property) %>
+			<%= image_for(@property, :profile) %>
 			<h2><%= @property.address1 %>, <% if @property.address2.present? %> <%= @property.address2 %>, <% end %><%= @property.city %>, <%= @property.state %>, <%= @property.zip %></h2>
 		</header>
 			<h4>Asking Price <strong><%= number_to_currency(@property.price) %></strong></h4>

@@ -2,7 +2,7 @@ class OpenHousesController < ApplicationController
   before_action :set_property, except: [:index]
 
   def index
-  	@open_houses = OpenHouse.upcoming
+  	@open_houses = OpenHouse.all
   end
 
   def new

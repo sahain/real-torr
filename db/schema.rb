@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217203755) do
-
-  create_table "galleries", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "cover"
-    t.string   "token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "property_id"
-  end
-
-  add_index "galleries", ["property_id"], name: "index_galleries_on_property_id"
+ActiveRecord::Schema.define(version: 20140901224315) do
 
   create_table "open_houses", force: true do |t|
     t.datetime "starts_at"
@@ -34,21 +22,6 @@ ActiveRecord::Schema.define(version: 20141217203755) do
   end
 
   add_index "open_houses", ["property_id"], name: "index_open_houses_on_property_id"
-
-  create_table "pictures", force: true do |t|
-    t.string   "description"
-    t.string   "image"
-    t.integer  "gallery_id"
-    t.string   "gallery_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-  add_index "pictures", ["gallery_id"], name: "index_pictures_on_gallery_id"
 
   create_table "properties", force: true do |t|
     t.text     "description"

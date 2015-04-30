@@ -3,9 +3,14 @@ module PropertiesHelper
   	number_to_currency(property.price)
   end
 
-  def image_for(property, size)
-  	if property.pictures.exists?
-      image_tag(property.pictures.first.image.url(size))
+  # def image_for(property, size)
+  #	if property.pictures.exists?
+  #    image_tag(property.pictures.first.image.url(size))
+
+
+  def image_for(property)
+  	if property.image.exists?
+      image_tag(property.image.url(:profile))
     else
       image_tag('placeholder.png')
     end

@@ -2,12 +2,20 @@
 	<div class="row">
 		<header>
 			<% if @property.pictures.exists? %>
-				<%= link_to image_for(@property), gallery_path(@gallery), :class => "th" %>
+				<%= link_to image_for(@property, :small), gallery_path(@gallery), :class => "th" %>
 			<% end %>
 			<h2><%= @property.address1 %>, <% if @property.address2.present? %> <%= @property.address2 %>, <% end %><%= @property.city %>, <%= @property.state %>, <%= @property.zip %></h2>
 		</header>
-				<h4>Asking Price <strong><%= number_to_currency(@property.price) %></strong></h4>
-
+			<h4>Asking Price <strong><%= number_to_currency(@property.price) %></strong></h4>
+		<% content_for(:side) do %>
+		  <nav>
+		  	<ul>
+		  		<li>
+		  			
+		  		</li>
+		  	</ul>
+		  </nav>
+		<% end %>
 		<%= description_for(@property) %>
 		<h4>Map</h4>
 		<iframe

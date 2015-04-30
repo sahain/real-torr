@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.all    
+    @properties = Property.order(params[:sort])
   end
 
   def show
@@ -23,24 +23,24 @@ class PropertiesController < ApplicationController
     end  	
   end
 
-def new
-  @property = Property.new
-end
+  def new
+    @property = Property.new
+  end
 
-def create
-  @property = Property.new(property_params)
-  if @property.save
-    redirect_to @property, notice: "Property successfully created!"
-  else
-     render :new
-  end 
-end
+  def create
+    @property = Property.new(property_params)
+    if @property.save
+      redirect_to @property, notice: "Property successfully created!"
+    else
+       render :new
+    end 
+  end
 
-def destroy
-  @property = Property.find(params[:id])
-  @property.destroy
-  redirect_to properties_url
-end
+  def destroy
+    @property = Property.find(params[:id])
+    @property.destroy
+    redirect_to properties_url
+  end
 
 private
   def property_params

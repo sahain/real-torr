@@ -17,8 +17,9 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+      <%= render "layouts/sidebar" %>
+      <%= render 'layouts/messages' %>
+      <%= yield %>
     </main>
     <%= javascript_include_tag "application" %>
   </body>

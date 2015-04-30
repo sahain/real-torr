@@ -4,16 +4,18 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Address</th>
-				<th>City</th>
-				<th>Zip</th>
-				<th>Price</th>
+				<th><%= link_to "Image" %></th>
+				<th><%= link_to "Address", sort: :address1 %></th>
+				<th><%= link_to "City", sort: :city %></th>
+				<th><%= link_to "Zip", sort: :zip %></th>
+				<th><%= link_to "Price", sort: :price %></th>
 				<th>Description</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @properties.each do |p| %>
 			<tr>
+				<td><%= image_for(p, :small) %></td>
 				<td><%= link_to p.address1, p %></td>
 				<td><%= p.city %></td>
 				<td><%= p.zip %></td>
